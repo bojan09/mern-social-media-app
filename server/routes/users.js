@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt");
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    res.status(200).json(user);
+    const { password, updatedAt, ...other } = user._doc;
+    res.status(200).json(other);
   } catch (error) {
     res.status(500).json(error);
   }
