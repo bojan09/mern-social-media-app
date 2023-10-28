@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const userRoute = require("./routes/users");
 const userAuth = require("./routes/auth");
+const postRoute = require("./routes/post");
 
 const app = express();
 
@@ -15,13 +16,11 @@ app.use(helmet());
 app.use(morgan("common"));
 
 // routes
-app.get("/", (req, res) => {
-  res.send("Hello world ");
-});
-
 app.use("/api/users", userRoute);
 app.use("/api/auth", userAuth);
+app.use("/api/post", postRoute);
 
+// port & mongo
 const PORT = process.env.PORT;
 const mongoURI = process.env.DB_URI;
 
