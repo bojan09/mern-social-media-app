@@ -18,7 +18,7 @@ app.use(morgan("common"));
 // routes
 app.use("/api/users", userRoute);
 app.use("/api/auth", userAuth);
-app.use("/api/post", postRoute);
+app.use("/api/posts", postRoute);
 
 // port & mongo
 const PORT = process.env.PORT;
