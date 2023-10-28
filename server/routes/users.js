@@ -3,6 +3,14 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
 // Get a User
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // Update User
 router.put("/:id", async (req, res) => {
@@ -41,6 +49,7 @@ router.delete("/:id", async (req, res) => {
     return res.status(403).json("You can delete only your account!");
   }
 });
+
 // Follow a user
 // Unfollow a user
 
