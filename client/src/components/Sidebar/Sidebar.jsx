@@ -73,17 +73,29 @@ const Sidebar = () => {
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
           <li className="sidebarFriend">
-            <img src={Person_5} alt="friend" className="sidebarFriendImage" />
+            <img
+              src={Person_5}
+              alt="friend"
+              className="sidebarFriendImage image"
+            />
             <span className="sidebarFriendName">John Doe</span>
           </li>
 
           <li className="sidebarFriend">
-            <img src={Person_4} alt="friend" className="sidebarFriendImage" />
+            <img
+              src={Person_4}
+              alt="friend"
+              className="sidebarFriendImage image"
+            />
             <span className="sidebarFriendName">Jane Doe</span>
           </li>
 
           <li className="sidebarFriend">
-            <img src={Person_3} alt="friend" className="sidebarFriendImage" />
+            <img
+              src={Person_3}
+              alt="friend"
+              className="sidebarFriendImage image"
+            />
             <span className="sidebarFriendName">Jamie Doe</span>
           </li>
         </ul>
