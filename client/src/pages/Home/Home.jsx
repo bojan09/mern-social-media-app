@@ -1,11 +1,16 @@
 import "./Home.css";
-import { Topbar } from "../../components";
+import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Topbar />
-    </div>
+      <div className="homeContainer">
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </div>
+    </>
   );
 };
 
