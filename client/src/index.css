@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap');
 
 :root {
-  font-family: 'Roboto', sans-serif;
+  --shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+
 }
 
 * {
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -29,4 +31,9 @@ button {
   outline: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #ddd;
+}
+
+button:hover {
+  background-color: #ccc;
 }
