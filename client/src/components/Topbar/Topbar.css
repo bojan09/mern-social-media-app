@@ -59,6 +59,10 @@
     cursor: pointer;
 }
 
+.topbarLink:first-child {
+    margin-left: 5px;
+}
+
 .topbarIcons {
     display: flex;
 }
