@@ -4,21 +4,26 @@ import "./Post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // asserts
-import { Heart, Like, Person_1 } from "../../assets";
+import { Heart, Like } from "../../assets";
+import { Users } from "../../dummyData";
 
 const Post = ({ post }) => {
-  console.log(post);
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={Person_1}
+              src={
+                Users.filter((user) => user.id === post.userId)[0]
+                  .profilePicture
+              }
               alt="person"
               className="postProfileImage image"
             />
-            <span className="postUsername">John Doe</span>
+            <span className="postUsername">
+              {Users.filter((user) => user.id === post.userId)[0].username}
+            </span>
             <span className="postDate">{post?.date}</span>
           </div>
           <div className="postTopRight">
