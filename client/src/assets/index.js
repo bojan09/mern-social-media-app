@@ -23,7 +23,7 @@ export { default as Post_9 } from "./post/9.jpeg";
 export { default as Post_10 } from "./post/10.jpeg";
 
 // other
-export { default as Ad } from "./ad.png";
+export { default as Ad } from "./ad.jpg";
 export { default as Gift } from "./gift.png";
 export { default as Heart } from "./heart.png";
 export { default as Like } from "./like.png";
