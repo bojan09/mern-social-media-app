@@ -1,10 +1,12 @@
 import "./Rightbar.css";
 
+// components
 import Online from "../Online/Online";
 
 // assets
 import { Ad, Gift } from "../../assets";
 
+// data
 import { Users } from "../../dummyData.js";
 
 const Rightbar = () => {

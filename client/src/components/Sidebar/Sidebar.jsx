@@ -1,5 +1,8 @@
 import "./Sidebar.css";
 
+// components
+import CloseFriends from "../CloseFriends/CloseFriends";
+
 // icons
 import FeedIcon from "@mui/icons-material/Feed";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
@@ -11,8 +14,8 @@ import WorkIcon from "@mui/icons-material/Work";
 import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
 
-// assets
-import { Person_5, Person_4, Person_3 } from "../../assets";
+// data
+import { Users } from "../../dummyData.js";
 
 const Sidebar = () => {
   return (
@@ -72,32 +75,9 @@ const Sidebar = () => {
         <button className="sidebarButton">Show more</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          <li className="sidebarFriend">
-            <img
-              src={Person_5}
-              alt="friend"
-              className="sidebarFriendImage image"
-            />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img
-              src={Person_4}
-              alt="friend"
-              className="sidebarFriendImage image"
-            />
-            <span className="sidebarFriendName">Jane Doe</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img
-              src={Person_3}
-              alt="friend"
-              className="sidebarFriendImage image"
-            />
-            <span className="sidebarFriendName">Jamie Doe</span>
-          </li>
+          {Users.map((user) => (
+            <CloseFriends key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>

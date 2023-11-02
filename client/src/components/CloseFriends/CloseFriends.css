@@ -1,0 +1,9 @@
+.sidebarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.sidebarFriendImage {
+    margin-right: 10px;
+}

@@ -44,13 +44,3 @@
 .sidebarHr {
     margin: 20px 0;
 }
-
-.sidebarFriend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.sidebarFriendImage {
-    margin-right: 10px;
-}
