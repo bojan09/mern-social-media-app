@@ -1,11 +1,12 @@
-import { Home, ProfilePage, Login } from "./pages";
+import { Home, ProfilePage, Login, Register } from "./pages";
 
 const App = () => {
   return (
     <div>
       {/* <Home /> */}
       {/* <ProfilePage /> */}
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </div>
   );
 };
