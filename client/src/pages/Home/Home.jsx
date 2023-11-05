@@ -1,4 +1,6 @@
 import "./Home.css";
+
+// components
 import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
 
 const Home = () => {

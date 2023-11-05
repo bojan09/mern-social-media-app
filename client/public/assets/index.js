@@ -22,6 +22,10 @@ export { default as Post_8 } from "./post/8.jpeg";
 export { default as Post_9 } from "./post/9.jpeg";
 export { default as Post_10 } from "./post/10.jpeg";
 
+// coverImages
+export { default as Nature_1 } from "./coverImages/Nature_1.jpg";
+export { default as Nature_2 } from "./coverImages/Nature_2.jpg";
+
 // other
 export { default as Ad } from "./ad.jpg";
 export { default as Gift } from "./gift.png";

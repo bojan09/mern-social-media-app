@@ -5,7 +5,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
 // assets
-import { Person_1 } from "../../assets";
+import { Person_1 } from "../../../public/assets";
 
 const Topbar = () => {
   return (

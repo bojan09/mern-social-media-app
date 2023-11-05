@@ -1,9 +1,10 @@
-import { Home } from "./pages";
+import { Home, ProfilePage } from "./pages";
 
 const App = () => {
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
+      <ProfilePage />
     </div>
   );
 };

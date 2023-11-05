@@ -6,7 +6,7 @@ import "./Post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // asserts
-import { Heart, Like } from "../../assets";
+import { Heart, Like } from "../../../public/assets";
 import { Users } from "../../dummyData";
 
 const Post = ({ post }) => {

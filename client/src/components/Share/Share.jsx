@@ -7,7 +7,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 
 // assets
-import { Person_1 } from "../../assets";
+import { Person_1 } from "../../../public/assets";
 
 const Share = () => {
   return (
