@@ -3,10 +3,10 @@ import { Home, ProfilePage, Login, Register } from "./pages";
 const App = () => {
   return (
     <div>
-      {/* <Home /> */}
+      <Home />
       {/* <ProfilePage /> */}
       {/* <Login /> */}
-      <Register />
+      {/* <Register /> */}
     </div>
   );
 };
