@@ -6,7 +6,6 @@ import Online from "../Online/Online";
 import {
   Ad,
   Gift,
-  Person_1,
   Person_10,
   Person_8,
   Person_9,
@@ -15,7 +14,7 @@ import {
 // data
 import { Users } from "../../dummyData.js";
 
-export default function Rightbar({ profile }) {
+export default function Rightbar() {
   const HomeRightbar = () => {
     return (
       <>
