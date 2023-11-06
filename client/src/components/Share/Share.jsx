@@ -21,7 +21,7 @@ const Share = () => {
           />
           <input
             type="text"
-            placeholder="What's in your mind John?"
+            placeholder="What's on your mind John?"
             className="shareInput"
           />
         </div>

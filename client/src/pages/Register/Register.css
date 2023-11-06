@@ -55,7 +55,7 @@
     outline: none;
 }
 
-input:focus {
+.registerInput:focus {
     border: 3.5px solid cornflowerblue;
 }
 
