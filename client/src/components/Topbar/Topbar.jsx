@@ -3,6 +3,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Link } from "react-router-dom";
+
+import { mainPath, userProfile } from "../../constants";
 
 // assets
 import { Person_1 } from "../../../public/assets";
@@ -10,7 +13,9 @@ import { Person_1 } from "../../../public/assets";
 const Topbar = () => {
   return (
     <div className="topbarContainer">
-      <span className="logo">ShareSpace</span>
+      <Link to={mainPath}>
+        <span className="logo">ShareSpace</span>
+      </Link>
       <div className="topbarLeft"></div>
       <div className="topbarCenter">
         <div className="searchBar">
@@ -24,7 +29,9 @@ const Topbar = () => {
       </div>
       <div className="topbarRight">
         <div className="topbarLink">
-          <span className="topbarLink">Homepage</span>
+          <Link to={mainPath}>
+            <span className="topbarLink">Homepage</span>
+          </Link>
           <span className="topbarLink">Timeline</span>
         </div>
         <div className="topbarIcons">
@@ -43,7 +50,13 @@ const Topbar = () => {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img src={Person_1} alt="person" className="topbarProfileImage image" />
+        <Link to={`${userProfile}/james`}>
+          <img
+            src={Person_1}
+            alt="person"
+            className="topbarProfileImage image"
+          />
+        </Link>
       </div>
     </div>
   );

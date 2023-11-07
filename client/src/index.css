@@ -14,8 +14,11 @@
 
 a,
 li,
-ul {
+ul,
+Link {
   list-style: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 .image {
