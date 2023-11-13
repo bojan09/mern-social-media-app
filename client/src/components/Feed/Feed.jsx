@@ -1,16 +1,23 @@
 import "./Feed.css";
-
-import { Share, Post } from "../";
-import { Posts } from "../../dummyData.js";
+import { useEffect } from "react";
+import { fetchPosts } from "../../../api";
+import { Share } from "../";
 
 const Feed = () => {
+  // const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   return (
     <div className="feed">
       <div className="feedWrapper">
         <Share />
-        {Posts.map((post) => (
+
+        {/* {Posts.map((post) => (
           <Post post={post} key={post.id} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

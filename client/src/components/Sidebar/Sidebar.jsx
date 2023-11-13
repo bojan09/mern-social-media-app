@@ -38,11 +38,6 @@ const Sidebar = () => {
           </li>
 
           <li className="sidebarListItem">
-            <VideoLibraryIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
-          </li>
-
-          <li className="sidebarListItem">
             <GroupIcon className="sidebarIcon" />
             <span className="sidebarListItemText">Groups</span>
           </li>
