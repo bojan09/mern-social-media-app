@@ -1,12 +1,18 @@
 import "./Feed.css";
+import axios from "axios";
 import { useEffect } from "react";
-import { fetchPosts } from "../../../api";
 import { Share } from "../";
 
 const Feed = () => {
   // const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_PROXY}posts/timeline/6555155f58e3363dcf6db81f`
+      );
+      console.log(res);
+    };
     fetchPosts();
   }, []);
 
