@@ -1,17 +1,20 @@
 import "./Feed.css";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+// components
+import { Post } from "../";
 import { Share } from "../";
 
 const Feed = () => {
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get(
         `${import.meta.env.VITE_PROXY}posts/timeline/6555155f58e3363dcf6db81f`
       );
-      console.log(res);
+      setPosts(res.data);
     };
     fetchPosts();
   }, []);
@@ -21,9 +24,9 @@ const Feed = () => {
       <div className="feedWrapper">
         <Share />
 
-        {/* {Posts.map((post) => (
-          <Post post={post} key={post.id} />
-        ))} */}
+        {posts.map((post) => (
+          <Post post={post} key={post._id} />
+        ))}
       </div>
     </div>
   );
