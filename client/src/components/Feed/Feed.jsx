@@ -6,18 +6,25 @@ import { useEffect, useState } from "react";
 import { Post } from "../";
 import { Share } from "../";
 
-const Feed = () => {
+const Feed = ({ username }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_PROXY}posts/timeline/6555155f58e3363dcf6db81f`
-      );
+      const res = username
+        ? await axios.get(
+            `${import.meta.env.VITE_PROXY}posts/profile/` + username
+          )
+        : await axios.get(
+            `${
+              import.meta.env.VITE_PROXY
+            }posts/timeline/6555155f58e3363dcf6db81f`
+          );
       setPosts(res.data);
     };
     fetchPosts();
-  }, []);
+    console.log(username);
+  }, [username]);
 
   return (
     <div className="feed">

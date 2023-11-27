@@ -3,6 +3,7 @@ import "./Post.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
+import { Link } from "react-router-dom";
 
 // icons
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -35,11 +36,13 @@ const Post = ({ post }) => {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              src={user.profilePicture || Person_10}
-              alt="person"
-              className="postProfileImage image"
-            />
+            <Link to={`profile/${user.userName}`}>
+              <img
+                src={user.profilePicture || Person_10}
+                alt="person"
+                className="postProfileImage image"
+              />
+            </Link>
             <span className="postUsername">{user.userName}</span>
             <span className="postDate">{format(post?.createdAt)}</span>
           </div>
