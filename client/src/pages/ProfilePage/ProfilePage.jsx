@@ -1,4 +1,6 @@
 import "./ProfilePage.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 // components
 import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
@@ -7,6 +9,18 @@ import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
 import { Nature_1, Person_1 } from "../../../public/assets";
 
 const ProfilePage = () => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_PROXY}users?username=john`
+      );
+      setUser(res.data);
+    };
+    fetchUser();
+  }, []);
+
   return (
     <>
       <Topbar />
@@ -19,13 +33,13 @@ const ProfilePage = () => {
               <img src={Person_1} alt="" className="profileUserImage" />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoUsername">James Brown</h4>
-              <p className="profileInfoDescription">Hello world</p>
+              <h4 className="profileInfoUsername">{user.userName}</h4>
+              <p className="profileInfoDescription">{user.description}</p>
             </div>
           </div>
           <div className="profileRightBottom">
             <Feed username="john" />
-            <Rightbar profile />
+            <Rightbar user={user} />
           </div>
         </div>
       </div>

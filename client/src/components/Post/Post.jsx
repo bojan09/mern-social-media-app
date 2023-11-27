@@ -24,7 +24,7 @@ const Post = ({ post }) => {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_PROXY}users/${post.userId}`
+        `${import.meta.env.VITE_PROXY}users?userId=${post.userId}`
       );
       setUser(res.data);
     };
@@ -51,7 +51,9 @@ const Post = ({ post }) => {
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{post?.description}</span>
+          <span className="postText">
+            {post?.description || "Holla Amigos"}
+          </span>
           <img
             src={post?.img || Post_10}
             alt="post_img"
