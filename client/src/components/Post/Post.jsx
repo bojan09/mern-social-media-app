@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // asserts
-import { Heart, Like, Person_10, Post_10 } from "../../../public/assets";
+import { Heart, Like, Post_10 } from "../../../public/assets";
 
 const Post = ({ post }) => {
   const [like, setLike] = useState(post?.likes.length);
@@ -38,7 +38,7 @@ const Post = ({ post }) => {
           <div className="postTopLeft">
             <Link to={`profile/${user.userName}`}>
               <img
-                src={user.profilePicture || Person_10}
+                src={user.profilePicture}
                 alt="person"
                 className="postProfileImage image"
               />
@@ -51,11 +51,9 @@ const Post = ({ post }) => {
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">
-            {post?.description || "Holla Amigos"}
-          </span>
+          <span className="postText">{post?.description}</span>
           <img
-            src={post?.img || Post_10}
+            src={post?.image || Post_10}
             alt="post_img"
             className="postImage"
           />

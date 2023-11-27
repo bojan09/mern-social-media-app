@@ -29,8 +29,16 @@ const ProfilePage = () => {
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="profileCover">
-              <img src={Nature_1} alt="" className="profileCoverImage" />
-              <img src={Person_1} alt="" className="profileUserImage" />
+              <img
+                src={user.coverPicture}
+                alt=""
+                className="profileCoverImage"
+              />
+              <img
+                src={user.profilePicture}
+                alt=""
+                className="profileUserImage"
+              />
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoUsername">{user.userName}</h4>

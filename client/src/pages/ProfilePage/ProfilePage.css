@@ -7,26 +7,26 @@
 }
 
 .profileCover {
-    height: 320px;
+    height: 460px;
     position: relative;
 }
 
 .profileCoverImage {
     width: 100%;
-    height: 250px;
+    height: 380px;
     object-fit: cover;
 }
 
 .profileUserImage {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 3px solid #fff;
     object-fit: cover;
     position: absolute;
     inset: 0;
     margin: auto;
-    top: 150px;
+    top: 250px;
 }
 
 .profileInfo {
@@ -34,10 +34,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 1rem 0;
 }
 
 .profileInfoUsername {
     font-size: 24px;
+    text-transform: capitalize;
 }
 
 .profileInfoDescription {
