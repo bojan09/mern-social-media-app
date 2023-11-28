@@ -18,12 +18,11 @@ const Feed = ({ username }) => {
         : await axios.get(
             `${
               import.meta.env.VITE_PROXY
-            }posts/timeline/6555155f58e3363dcf6db81f`
+            }posts/timeline/653bd37dd544d41bb2b2c533`
           );
       setPosts(res.data);
     };
     fetchPosts();
-    console.log(username);
   }, [username]);
 
   return (

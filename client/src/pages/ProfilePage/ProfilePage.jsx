@@ -1,25 +1,23 @@
 import "./ProfilePage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 // components
 import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
 
-// assets
-import { Nature_1, Person_1 } from "../../../public/assets";
-
 const ProfilePage = () => {
   const [user, setUser] = useState({});
-
+  const username = useParams().username;
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_PROXY}users?username=john`
+        `${import.meta.env.VITE_PROXY}users?username=${username}`
       );
       setUser(res.data);
     };
     fetchUser();
-  }, []);
+  }, [username]);
 
   return (
     <>
@@ -46,7 +44,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username="john" />
+            <Feed username={username} />
             <Rightbar user={user} />
           </div>
         </div>

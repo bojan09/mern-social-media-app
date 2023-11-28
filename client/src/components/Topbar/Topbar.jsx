@@ -50,7 +50,7 @@ const Topbar = () => {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <Link to={`${userProfile}/james`}>
+        <Link to={`${userProfile}/James`}>
           <img
             src={Person_1}
             alt="person"
