@@ -21,6 +21,11 @@
     height: 5rem;
 }
 
+.shareInput:focus {
+    border: none;
+    outline: none;
+}
+
 .shareProfileImage {
     margin-right: 10px;
 }

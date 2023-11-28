@@ -40,9 +40,3 @@ button {
 button:hover {
   background-color: #ccc;
 }
-
-input:focus {
-  outline: none;
-  border: none;
-
-}
