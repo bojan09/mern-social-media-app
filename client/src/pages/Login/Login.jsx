@@ -16,8 +16,8 @@ const Login = () => {
       { email: email.current.value, password: password.current.value },
       dispatch
     );
-    console.log(user);
   };
+  console.log(user);
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -43,11 +43,13 @@ const Login = () => {
               className="loginInput"
               ref={password}
             />
-            <button className="loginButton">
+            <button className="loginButton" type="submit" disabled={isFetching}>
               {isFetching ? <CircularProgress /> : "Log In"}
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">Create Account</button>
+            <button className="loginRegisterButton">
+              {isFetching ? <CircularProgress /> : "Create Account"}
+            </button>
           </form>
         </div>
       </div>

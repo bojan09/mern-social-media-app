@@ -69,6 +69,10 @@ input:focus {
     font-weight: 500;
 }
 
+.loginButton:disabled {
+    cursor: not-allowed;
+}
+
 .loginForgot {
     text-align: center;
     color: #135fc3;

@@ -25,7 +25,6 @@ app.use("/api/posts", postRoute);
 // port & mongo
 const PORT = process.env.PORT;
 const mongoURI = process.env.DB_URI;
-
 mongoose
   .connect(mongoURI)
   .then(() =>
