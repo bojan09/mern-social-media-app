@@ -6,19 +6,29 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
+import { userProfile } from "../../constants";
+
 // assets
 import { Person_1 } from "../../../public/assets";
 
 const Share = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img
-            src={Person_1}
-            alt="person"
-            className="shareProfileImage image"
-          />
+          <Link to={`${userProfile}/${user.userName}`}>
+            <img
+              src={user.profilePicture ? user.profilePicture : Person_1}
+              alt="person"
+              className="shareProfileImage image"
+            />
+          </Link>
           <input
             type="text"
             placeholder="What's on your mind John?"
