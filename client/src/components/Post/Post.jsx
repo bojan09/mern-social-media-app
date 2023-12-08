@@ -1,22 +1,33 @@
 import "./Post.css";
 
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { format } from "timeago.js";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import { AuthContext } from "../../context/AuthContext";
+
+import { format } from "timeago.js";
+import axios from "axios";
 
 // icons
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // asserts
-import { Heart, Like, Post_10 } from "../../../public/assets";
+import { Heart, Like } from "../../../public/assets";
 
 const Post = ({ post }) => {
   const [like, setLike] = useState(post?.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
+  const { user: currentUser } = useContext(AuthContext);
 
   const likeHandler = () => {
+    try {
+      axios.put(`${import.meta.env.VITE_PROXY}posts/` + post._id + `/like`, {
+        userId: currentUser._id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
