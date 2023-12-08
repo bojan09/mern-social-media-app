@@ -12,9 +12,6 @@ import { AuthContext } from "../../context/AuthContext";
 
 import { userProfile } from "../../constants";
 
-// assets
-import { Person_1 } from "../../../public/assets";
-
 const Share = () => {
   const { user } = useContext(AuthContext);
 
@@ -24,14 +21,14 @@ const Share = () => {
         <div className="shareTop">
           <Link to={`${userProfile}/${user.userName}`}>
             <img
-              src={user.profilePicture ? user.profilePicture : Person_1}
+              src={user.profilePicture}
               alt="person"
               className="shareProfileImage image"
             />
           </Link>
           <input
             type="text"
-            placeholder="What's on your mind John?"
+            placeholder={`What's on your mind ` + user.userName + `?`}
             className="shareInput"
           />
         </div>
