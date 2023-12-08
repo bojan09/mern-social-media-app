@@ -22,7 +22,11 @@ const Feed = ({ username }) => {
         : await axios.get(
             `${import.meta.env.VITE_PROXY}posts/timeline/` + user._id
           );
-      setPosts(res.data);
+      setPosts(
+        res.data.sort((post1, post2) => {
+          return new Date(post2.createdAt) - new Date(post1.createdAt);
+        })
+      );
     };
     fetchPosts();
   }, [username, user._id]);

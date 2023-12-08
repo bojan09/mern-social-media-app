@@ -27,9 +27,16 @@ const Share = () => {
     };
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      const fileName = Date.now() + file.name;
+      data.append("name", fileName);
       data.append("file", file);
-      data.append("name", filename);
+      newPost.image = fileName;
+      console.log(newPost);
+      try {
+        await axios.post(`${import.meta.env.VITE_PROXY}upload`, data);
+      } catch (err) {
+        console.log(err);
+      }
     }
     try {
       await axios.post(`${import.meta.env.VITE_PROXY}posts`, newPost);
