@@ -20,6 +20,10 @@ const Post = ({ post }) => {
   const [user, setUser] = useState({});
   const { user: currentUser } = useContext(AuthContext);
 
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [post.likes, currentUser._id]);
+
   const likeHandler = () => {
     try {
       axios.put(`${import.meta.env.VITE_PROXY}posts/` + post._id + `/like`, {
