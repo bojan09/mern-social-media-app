@@ -9,7 +9,7 @@
 
 .registerWrapper {
     width: 70%;
-    height: 70%;
+    height: 7%;
     display: flex;
     gap: 5rem;
 }
@@ -35,7 +35,7 @@
 }
 
 .registerBox {
-    height: 400px;
+    max-height: 130rem;
     width: 75%;
     padding: 20px;
     background-color: #fff;
@@ -59,7 +59,17 @@
     border: 3.5px solid cornflowerblue;
 }
 
+.registerLabel {
+    color: #555;
+    font-weight: 500;
+}
+
+.registerLabel:not(:first-child) {
+    margin-top: 1rem;
+}
+
 .registerButton {
+    margin-top: 1.5rem;
     height: 50px;
     border-radius: 10px;
     border: none;

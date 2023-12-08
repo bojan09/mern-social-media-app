@@ -25,6 +25,12 @@ const Share = () => {
       userId: user._id,
       description: description.current.value,
     };
+    if (file) {
+      const data = new FormData();
+      const filename = Date.now() + file.name;
+      data.append("file", file);
+      data.append("name", filename);
+    }
     try {
       await axios.post(`${import.meta.env.VITE_PROXY}posts`, newPost);
     } catch (err) {

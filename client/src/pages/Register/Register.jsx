@@ -42,13 +42,20 @@ const Register = () => {
         </div>
         <div className="registerRight">
           <form className="registerBox" onSubmit={handleClick}>
+            <label className="registerLabel" htmlFor="text">
+              Name
+            </label>
             <input
               type="text"
+              id="text"
               placeholder="Your name"
               className="registerInput"
               ref={userName}
               required
             />
+            <label className="registerLabel" htmlFor="text">
+              Email
+            </label>
             <input
               type="email"
               placeholder="Your Email"
@@ -56,6 +63,9 @@ const Register = () => {
               ref={email}
               required
             />
+            <label className="registerLabel" htmlFor="text">
+              Password
+            </label>
             <input
               type="password"
               placeholder="Your Password"
@@ -64,6 +74,9 @@ const Register = () => {
               minLength={6}
               required
             />
+            <label className="registerLabel" htmlFor="text">
+              Repeat Password
+            </label>
             <input
               type="password"
               placeholder="Repeat Password"
