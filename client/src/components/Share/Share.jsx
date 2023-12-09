@@ -40,6 +40,7 @@ const Share = () => {
     }
     try {
       await axios.post(`${import.meta.env.VITE_PROXY}posts`, newPost);
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }

@@ -3,13 +3,7 @@ import "./Rightbar.css";
 // components
 import Online from "../Online/Online";
 // assets
-import {
-  Ad,
-  Gift,
-  Person_10,
-  Person_8,
-  Person_9,
-} from "../../../public/assets";
+import { Ad, Gift, Person_8 } from "../../../public/assets";
 
 // data
 import { Users } from "../../dummyData.js";
@@ -66,24 +60,6 @@ export default function Rightbar({ user }) {
           <div className="rightbarFollowing">
             <img
               src={Person_8}
-              alt="friendImage"
-              className="rightbarFollowingImage"
-            />
-            <span className="rightbarFollowingName">James Carter</span>
-          </div>
-
-          <div className="rightbarFollowing">
-            <img
-              src={Person_9}
-              alt="friendImage"
-              className="rightbarFollowingImage"
-            />
-            <span className="rightbarFollowingName">James Carter</span>
-          </div>
-
-          <div className="rightbarFollowing">
-            <img
-              src={Person_10}
               alt="friendImage"
               className="rightbarFollowingImage"
             />

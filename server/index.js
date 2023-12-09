@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
 const multer = require("multer");
+const path = require("path");
 require("dotenv").config();
 
 const userRoute = require("./routes/users");
@@ -19,6 +20,8 @@ app.use(morgan("common"));
 app.use(cors());
 
 // upload files
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images");
