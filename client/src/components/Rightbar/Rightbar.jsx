@@ -1,6 +1,7 @@
 import "./Rightbar.css";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -9,22 +10,27 @@ import Online from "../Online/Online";
 
 // assets
 import { Ad, Gift } from "../../../public/assets";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function Rightbar({ user }) {
-  const HomeRightbar = () => {
-    const [friends, setFriends] = useState([]);
+  const [friends, setFriends] = useState([]);
+  const { user: currentUser } = useContext(AuthContext);
 
-    useEffect(() => {
-      const getFriends = async () => {
-        try {
-          const friendList = await axios.get(`users/friends/` + user._id);
-          setFriends(friendList.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      getFriends();
-    }, []);
+  useEffect(() => {
+    const getFriends = async () => {
+      try {
+        const friendList = await axios.get(
+          `${import.meta.env.VITE_PROXY}users/friends/${user._id}`
+        );
+        setFriends(friendList.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getFriends();
+  }, [user]);
+
+  const HomeRightbar = () => {
     return (
       <>
         <div className="birthdayContainer">
@@ -45,21 +51,12 @@ export default function Rightbar({ user }) {
   };
 
   const ProfileRightbar = () => {
-    const [friends, setFriends] = useState([]);
-
-    useEffect(() => {
-      const getFriends = async () => {
-        try {
-          const friendList = await axios.get(`users/friends/` + user._id);
-          setFriends(friendList.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      getFriends();
-    }, []);
     return (
       <>
+        {user.userName !== currentUser.username && (
+          <button className="rightbarFollowButton">Follow {<AddIcon />}</button>
+        )}
+
         <h4 className="rightbarTitle">User Information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
