@@ -13,6 +13,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 
 import { userProfile } from "../../constants";
+import { noAvatarImage } from "../../../public/assets";
 
 const Share = () => {
   const { user } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const Share = () => {
         <div className="shareTop">
           <Link to={`${userProfile}/${user.userName}`}>
             <img
-              src={user.profilePicture}
+              src={user.profilePicture ? user.profilePicture : noAvatarImage}
               alt="person"
               className="shareProfileImage image"
             />

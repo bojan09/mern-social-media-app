@@ -1,10 +1,14 @@
 import "./ProfilePage.css";
+
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 // components
 import { Topbar, Rightbar, Sidebar, Feed } from "../../components";
+
+// assets
+import { noAvatarImage, noCoverImage } from "../../../public/assets";
 
 const ProfilePage = () => {
   const [user, setUser] = useState({});
@@ -28,12 +32,12 @@ const ProfilePage = () => {
           <div className="profileRightTop">
             <div className="profileCover">
               <img
-                src={user.coverPicture}
+                src={user.coverPicture ? user.coverPicture : noCoverImage}
                 alt=""
                 className="profileCoverImage"
               />
               <img
-                src={user.profilePicture}
+                src={user.profilePicture ? user.profilePicture : noAvatarImage}
                 alt=""
                 className="profileUserImage"
               />

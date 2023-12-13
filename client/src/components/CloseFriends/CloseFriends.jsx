@@ -1,15 +1,17 @@
 import "./CloseFriends.css";
 
+import { noAvatarImage } from "../../../public/assets";
+
 const CloseFriends = ({ user }) => {
   return (
     <div>
       <li className="sidebarFriend">
         <img
-          src={user.profilePicture}
+          src={user?.profilePicture ? user?.profilePicture : noAvatarImage}
           alt="friend"
           className="sidebarFriendImage image"
         />
-        <span className="sidebarFriendName">John Doe</span>
+        <span className="sidebarFriendName">{user.username}</span>
       </li>
     </div>
   );

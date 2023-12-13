@@ -59,6 +59,15 @@ input:focus {
     border: 2.5px solid cornflowerblue;
 }
 
+.loginLabel {
+    color: #555;
+    font-weight: 500;
+}
+
+.registerLabel:not(:first-child) {
+    margin-top: 1rem;
+}
+
 .loginButton {
     height: 50px;
     border-radius: 10px;

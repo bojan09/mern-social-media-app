@@ -1,15 +1,30 @@
 import "./Rightbar.css";
 
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 // components
 import Online from "../Online/Online";
-// assets
-import { Ad, Gift, Person_8 } from "../../../public/assets";
 
-// data
-import { Users } from "../../dummyData.js";
+// assets
+import { Ad, Gift } from "../../../public/assets";
 
 export default function Rightbar({ user }) {
   const HomeRightbar = () => {
+    const [friends, setFriends] = useState([]);
+
+    useEffect(() => {
+      const getFriends = async () => {
+        try {
+          const friendList = await axios.get(`users/friends/` + user._id);
+          setFriends(friendList.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getFriends();
+    }, []);
     return (
       <>
         <div className="birthdayContainer">
@@ -21,8 +36,8 @@ export default function Rightbar({ user }) {
         <img src={Ad} alt="ad" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((user) => (
-            <Online key={user.id} user={user} />
+          {friends.map((friend) => (
+            <Online key={friend.id} friend={friend} />
           ))}
         </ul>
       </>
@@ -30,6 +45,19 @@ export default function Rightbar({ user }) {
   };
 
   const ProfileRightbar = () => {
+    const [friends, setFriends] = useState([]);
+
+    useEffect(() => {
+      const getFriends = async () => {
+        try {
+          const friendList = await axios.get(`users/friends/` + user._id);
+          setFriends(friendList.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getFriends();
+    }, []);
     return (
       <>
         <h4 className="rightbarTitle">User Information</h4>
@@ -57,14 +85,19 @@ export default function Rightbar({ user }) {
         </div>
         <h4 className="rightbarTitle">User Friends</h4>
         <div className="rightbarFollowings">
-          <div className="rightbarFollowing">
-            <img
-              src={Person_8}
-              alt="friendImage"
-              className="rightbarFollowingImage"
-            />
-            <span className="rightbarFollowingName">James Carter</span>
-          </div>
+          {friends.map((friend) => (
+            <Link key={friend.id}>
+              <div className="rightbarFollowing">
+                <img
+                  src={friend.profilePicture}
+                  alt="friendImage"
+                  className="rightbarFollowingImage"
+                />
+
+                <span className="rightbarFollowingName">{friend.userName}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </>
     );

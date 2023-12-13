@@ -29,13 +29,21 @@ const Login = () => {
         </div>
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleClick}>
+            <label className="loginLabel" htmlFor="email">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
               placeholder="Your Email"
               className="loginInput"
               ref={email}
             />
+            <label className="loginLabel" htmlFor="password">
+              Password
+            </label>
             <input
+              id="password"
               type="password"
               minLength={6}
               placeholder="Your Password"

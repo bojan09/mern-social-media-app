@@ -12,7 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { mainPath, userProfile } from "../../constants";
 
 // assets
-import { Person_1 } from "../../../public/assets";
+import { noAvatarImage } from "../../../public/assets";
 
 const Topbar = () => {
   const { user } = useContext(AuthContext);
@@ -57,10 +57,14 @@ const Topbar = () => {
         </div>
         <Link to={`${userProfile}/${user.userName}`}>
           <img
-            src={user.profilePicture ? user.profilePicture : Person_1}
+            src={user.profilePicture ? user.profilePicture : noAvatarImage}
             alt="person"
             className="topbarProfileImage image"
           />
+        </Link>
+        <Link className="topbarUsername" to={`${userProfile}/${user.userName}`}>
+          <span>Hi, </span>
+          {user.userName}
         </Link>
       </div>
     </div>

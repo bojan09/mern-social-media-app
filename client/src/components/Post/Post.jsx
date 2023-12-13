@@ -12,7 +12,12 @@ import axios from "axios";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // asserts
-import { Heart, Like } from "../../../public/assets";
+import {
+  Heart,
+  Like,
+  noAvatarImage,
+  noCoverImage,
+} from "../../../public/assets";
 
 const Post = ({ post }) => {
   const [like, setLike] = useState(post?.likes.length);
@@ -53,7 +58,7 @@ const Post = ({ post }) => {
           <div className="postTopLeft">
             <Link to={`profile/${user.userName}`}>
               <img
-                src={user.profilePicture}
+                src={user.profilePicture ? user.profilePicture : noAvatarImage}
                 alt="person"
                 className="postProfileImage image"
               />
@@ -69,7 +74,11 @@ const Post = ({ post }) => {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.description}</span>
-          <img src={post?.image} alt="post_img" className="postImage" />
+          <img
+            src={post?.image ? post?.image : noCoverImage}
+            alt="post_img"
+            className="postImage"
+          />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

@@ -31,3 +31,5 @@ export { default as Ad } from "./ad.jpg";
 export { default as Gift } from "./gift.png";
 export { default as Heart } from "./heart.png";
 export { default as Like } from "./like.png";
+export { default as noAvatarImage } from "./noAvatar.png";
+export { default as noCoverImage } from "./no-cover.png";
