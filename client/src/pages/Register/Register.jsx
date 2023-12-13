@@ -1,6 +1,6 @@
 import "./Register.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
 
@@ -88,9 +88,7 @@ const Register = () => {
             <button className="registerButton" type="submit">
               Sign Up
             </button>
-            <button className="registerLoginButton" type="submit">
-              Log into Account
-            </button>
+            <button className="registerLoginButton">Log into Account</button>
           </form>
         </div>
       </div>

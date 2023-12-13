@@ -34,9 +34,4 @@ button {
   outline: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #ddd;
-}
-
-button:hover {
-  background-color: #ccc;
 }

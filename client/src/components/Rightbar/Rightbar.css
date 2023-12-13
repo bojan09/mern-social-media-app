@@ -95,5 +95,6 @@
 }
 
 .rightbarFollowButton:hover {
+    background-color: #ccc;
     color: #1877f2;
 }

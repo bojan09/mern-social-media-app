@@ -11,10 +11,12 @@ import Online from "../Online/Online";
 // assets
 import { Ad, Gift } from "../../../public/assets";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser } = useContext(AuthContext);
+  const [followed, setFollowed] = useState(false);
 
   useEffect(() => {
     const getFriends = async () => {
@@ -29,6 +31,31 @@ export default function Rightbar({ user }) {
     };
     getFriends();
   }, [user]);
+
+  useEffect(() => {
+    currentUser.followings.includes(user?._id);
+  }, [currentUser, user._id]);
+
+  const followHandler = async () => {
+    try {
+      if (followed) {
+        await axios.put(
+          `${import.meta.env.VITE_PROXY}users/${user._id}/follow`,
+          { userId: currentUser._id }
+        );
+      } else {
+        await axios.put(
+          `${import.meta.env.VITE_PROXY}users/${user._id}/unfollow`,
+          { userId: currentUser._id }
+        );
+        setFollowed(!followed){
+          
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const HomeRightbar = () => {
     return (
@@ -54,7 +81,10 @@ export default function Rightbar({ user }) {
     return (
       <>
         {user.userName !== currentUser.username && (
-          <button className="rightbarFollowButton">Follow {<AddIcon />}</button>
+          <button className="rightbarFollowButton" onClick={followHandler}>
+            {followed ? "Unfollow" : "Follow"}
+            {followed ? <RemoveIcon /> : <AddIcon />}
+          </button>
         )}
 
         <h4 className="rightbarTitle">User Information</h4>
