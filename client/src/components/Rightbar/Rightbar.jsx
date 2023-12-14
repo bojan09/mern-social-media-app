@@ -48,9 +48,6 @@ export default function Rightbar({ user }) {
           `${import.meta.env.VITE_PROXY}users/${user._id}/unfollow`,
           { userId: currentUser._id }
         );
-        setFollowed(!followed){
-          
-        }
       }
     } catch (err) {
       console.log(err);
