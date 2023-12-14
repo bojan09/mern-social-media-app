@@ -9,7 +9,7 @@ import axios from "axios";
 import Online from "../Online/Online";
 
 // assets
-import { Ad, Gift } from "../../../public/assets";
+import { Ad, Gift, noAvatarImage } from "../../../public/assets";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
@@ -112,7 +112,11 @@ export default function Rightbar({ user }) {
             <Link key={friend.id}>
               <div className="rightbarFollowing">
                 <img
-                  src={friend.profilePicture}
+                  src={
+                    friend.profilePicture
+                      ? friend.profilePicture
+                      : noAvatarImage
+                  }
                   alt="friendImage"
                   className="rightbarFollowingImage"
                 />
