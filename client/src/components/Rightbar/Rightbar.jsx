@@ -15,7 +15,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
-  const { user: currentUser } = useContext(AuthContext);
+  const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(false);
 
   useEffect(() => {
@@ -32,26 +32,25 @@ export default function Rightbar({ user }) {
     getFriends();
   }, [user]);
 
-  useEffect(() => {
-    currentUser.followings.includes(user?._id);
-  }, [currentUser, user._id]);
-
   const followHandler = async () => {
     try {
       if (followed) {
         await axios.put(
-          `${import.meta.env.VITE_PROXY}users/${user._id}/follow`,
-          { userId: currentUser._id }
-        );
-      } else {
-        await axios.put(
           `${import.meta.env.VITE_PROXY}users/${user._id}/unfollow`,
           { userId: currentUser._id }
         );
+        dispatch({ type: "UNFOLLOW", payload: user._id });
+      } else {
+        await axios.put(
+          `${import.meta.env.VITE_PROXY}users/${user._id}/follow`,
+          { userId: currentUser._id }
+        );
+        dispatch({ type: "FOLLOW", payload: user._id });
       }
     } catch (err) {
       console.log(err);
     }
+    setFollowed(!followed);
   };
 
   const HomeRightbar = () => {
@@ -77,7 +76,7 @@ export default function Rightbar({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-        {user.userName !== currentUser.username && (
+        {user.username !== currentUser.username && (
           <button className="rightbarFollowButton" onClick={followHandler}>
             {followed ? "Unfollow" : "Follow"}
             {followed ? <RemoveIcon /> : <AddIcon />}
@@ -118,7 +117,7 @@ export default function Rightbar({ user }) {
                   className="rightbarFollowingImage"
                 />
 
-                <span className="rightbarFollowingName">{friend.userName}</span>
+                <span className="rightbarFollowingName">{friend.username}</span>
               </div>
             </Link>
           ))}

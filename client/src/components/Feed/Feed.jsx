@@ -17,10 +17,10 @@ const Feed = ({ username }) => {
     const fetchPosts = async () => {
       const res = username
         ? await axios.get(
-            `${import.meta.env.VITE_PROXY}posts/profile/` + username
+            `${import.meta.env.VITE_PROXY}posts/profile/${username}`
           )
         : await axios.get(
-            `${import.meta.env.VITE_PROXY}posts/timeline/` + user._id
+            `${import.meta.env.VITE_PROXY}posts/timeline/${user._id}`
           );
       setPosts(
         res.data.sort((post1, post2) => {
@@ -34,7 +34,7 @@ const Feed = ({ username }) => {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        {(!username || username === user.userName) && <Share />}
+        {(!username || username === user.username) && <Share />}
         {posts.map((post) => (
           <Post post={post} key={post._id} />
         ))}

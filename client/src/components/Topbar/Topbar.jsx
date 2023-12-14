@@ -55,16 +55,16 @@ const Topbar = () => {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <Link to={`${userProfile}/${user.userName}`}>
+        <Link to={`${userProfile}/${user.username}`}>
           <img
             src={user.profilePicture ? user.profilePicture : noAvatarImage}
             alt="person"
             className="topbarProfileImage image"
           />
         </Link>
-        <Link className="topbarUsername" to={`${userProfile}/${user.userName}`}>
+        <Link className="topbarUsername" to={`${userProfile}/${user.username}`}>
           <span>Hi, </span>
-          {user.userName}
+          {user.username}
         </Link>
       </div>
     </div>

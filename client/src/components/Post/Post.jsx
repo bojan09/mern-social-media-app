@@ -56,15 +56,15 @@ const Post = ({ post }) => {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${user.userName}`}>
+            <Link to={`profile/${user.username}`}>
               <img
                 src={user.profilePicture ? user.profilePicture : noAvatarImage}
                 alt="person"
                 className="postProfileImage image"
               />
             </Link>
-            <Link to={`profile/${user.userName}`}>
-              <span className="postUsername">{user.userName}</span>
+            <Link to={`profile/${user.username}`}>
+              <span className="postUsername">{user.username}</span>
             </Link>
             <span className="postDate">{format(post?.createdAt)}</span>
           </div>

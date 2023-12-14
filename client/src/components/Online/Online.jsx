@@ -14,7 +14,7 @@ const Online = ({ friend }) => {
           />
           <span className="rightbarOnline"></span>
         </div>
-        <span className="rightbarUsername">{friend.userName}</span>
+        <span className="rightbarUsername">{friend.username}</span>
       </li>
     </div>
   );

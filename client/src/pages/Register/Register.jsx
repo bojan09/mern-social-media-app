@@ -1,11 +1,11 @@
 import "./Register.css";
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
 
 const Register = () => {
-  const userName = useRef();
+  const username = useRef();
   const email = useRef();
   const password = useRef();
   const passwordAgain = useRef();
@@ -18,7 +18,7 @@ const Register = () => {
       passwordAgain.current.setCustomValidity("Passwords don't match!");
     } else {
       const user = {
-        userName: userName.current.value,
+        username: username.current.value,
         email: email.current.value,
         password: password.current.value,
       };
@@ -50,7 +50,7 @@ const Register = () => {
               id="text"
               placeholder="Your name"
               className="registerInput"
-              ref={userName}
+              ref={username}
               required
             />
             <label className="registerLabel" htmlFor="text">

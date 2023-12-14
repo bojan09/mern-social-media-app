@@ -98,3 +98,7 @@ input:focus {
     font-size: 20px;
     font-weight: 500;
 }
+
+.loginRegisterButtonLink {
+    text-align: center;
+}

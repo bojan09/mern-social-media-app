@@ -50,7 +50,7 @@ const Share = () => {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <Link to={`${userProfile}/${user.userName}`}>
+          <Link to={`${userProfile}/${user.username}`}>
             <img
               src={user.profilePicture ? user.profilePicture : noAvatarImage}
               alt="person"
@@ -59,7 +59,7 @@ const Share = () => {
           </Link>
           <input
             type="text"
-            placeholder={`What's on your mind ` + user.userName + `?`}
+            placeholder={`What's on your mind ` + user.username + `?`}
             className="shareInput"
             ref={description}
           />

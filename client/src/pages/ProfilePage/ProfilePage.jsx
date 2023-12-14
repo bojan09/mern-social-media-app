@@ -13,6 +13,7 @@ import { noAvatarImage, noCoverImage } from "../../../public/assets";
 const ProfilePage = () => {
   const [user, setUser] = useState({});
   const username = useParams().username;
+
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
@@ -43,7 +44,7 @@ const ProfilePage = () => {
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoUsername">{user.userName}</h4>
+              <h4 className="profileInfoUsername">{user.username}</h4>
               <p className="profileInfoDescription">{user.description}</p>
             </div>
           </div>
