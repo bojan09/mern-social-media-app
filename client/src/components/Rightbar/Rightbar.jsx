@@ -109,7 +109,7 @@ export default function Rightbar({ user }) {
         <h4 className="rightbarTitle">User Friends</h4>
         <div className="rightbarFollowings">
           {friends.map((friend) => (
-            <Link key={friend.id}>
+            <Link key={friend._id} to={`/profile/${friend.username}`}>
               <div className="rightbarFollowing">
                 <img
                   src={
