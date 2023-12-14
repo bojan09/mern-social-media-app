@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 const userRoute = require("./routes/users");
@@ -19,6 +20,14 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions)); // Use this after the variable declaration
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

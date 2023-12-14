@@ -75,7 +75,12 @@ const Post = ({ post }) => {
         <div className="postCenter">
           <span className="postText">{post?.description}</span>
           <img
-            src={post?.image ? post?.image : noCoverImage}
+            crossOrigin="anonymous"
+            src={
+              post?.image
+                ? import.meta.env.VITE_POSTS_FOLDER + post?.image
+                : noCoverImage
+            }
             alt="post_img"
             className="postImage"
           />
