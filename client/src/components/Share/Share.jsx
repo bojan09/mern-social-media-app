@@ -59,7 +59,9 @@ const Share = () => {
           </Link>
           <input
             type="text"
-            placeholder={`What's on your mind ` + user.username + `?`}
+            placeholder={`What's on your mind ${user.username
+              .charAt(0)
+              .toUpperCase()}${user.username.slice(1)} ?`}
             className="shareInput"
             ref={description}
           />
