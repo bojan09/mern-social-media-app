@@ -16,7 +16,9 @@ import RemoveIcon from "@mui/icons-material/Remove";
 export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  const [followed, setFollowed] = useState(false);
+  const [followed, setFollowed] = useState(
+    currentUser.followings.includes(user?.id)
+  );
 
   useEffect(() => {
     const getFriends = async () => {

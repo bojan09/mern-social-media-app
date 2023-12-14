@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 require("dotenv").config();
@@ -13,14 +12,13 @@ const postRoute = require("./routes/post");
 
 const app = express();
 
-// middleware
+// upload
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+//middleware
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
-app.use(cors());
-
-// upload files
-app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -31,12 +29,12 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage });
-app.post(`/api/upload`, upload.single("file"), (req, res) => {
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
-    return res.status(200).json("File uploaded successfully!");
-  } catch (err) {
-    console.log(err);
+    return res.status(200).json("File uploded successfully");
+  } catch (error) {
+    console.error(error);
   }
 });
 
