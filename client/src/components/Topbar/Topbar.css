@@ -97,3 +97,15 @@
 .topbarUsername span {
     font-weight: 400;
 }
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+    .topbarIcons {
+        display: none;
+    }
+
+}
