@@ -1,7 +1,7 @@
 {
   "name": "share-space",
   "private": true,
-  "proxy": "http://localhost:8080/api",
+  "proxy": "https://nice-blue-toad-belt.cyclic.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
