@@ -29,6 +29,16 @@ const Post = ({ post }) => {
     setIsLiked(post.likes.includes(currentUser._id));
   }, [post.likes, currentUser._id]);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_PROXY}users?userId=${post.userId}`
+      );
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
+
   const likeHandler = () => {
     try {
       axios.put(`${import.meta.env.VITE_PROXY}posts/` + post._id + `/like`, {
@@ -40,17 +50,6 @@ const Post = ({ post }) => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_PROXY}users?userId=${post.userId}`
-      );
-      setUser(res.data);
-    };
-    fetchUser();
-  }, [post.userId]);
-
   return (
     <div className="post">
       <div className="postWrapper">
@@ -75,10 +74,9 @@ const Post = ({ post }) => {
         <div className="postCenter">
           <span className="postText">{post?.description}</span>
           <img
-            crossOrigin="anonymous"
             src={
               post?.image
-                ? import.meta.env.VITE_POSTS_FOLDER + post?.image
+                ? import.meta.env.VITE_PROXY + post?.image
                 : noCoverImage
             }
             alt="post_img"
